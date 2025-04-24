@@ -10,5 +10,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Detalle de reserva"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp" />
+
+    <ImageView
+        android:id="@+id/ivCamping"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:visibility="gone"
+        android:src="@drawable/camping"
+        android:contentDescription="Imagen de camping"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/tvCostoPorPersona"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:text="Costo por persona: " />
+
+    <TextView
+        android:id="@+id/tvDetalleCompleto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp" />
 </LinearLayout>

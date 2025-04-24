@@ -12,6 +12,7 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,6 +42,10 @@ public class ReservaAdapter extends RecyclerView.Adapter<ReservaAdapter.ReservaV
         holder.tvCliente.setText("Cliente: " + reserva.getCliente());
         holder.tvFechas.setText("Del " + reserva.getFechaEntrada() + " al " + reserva.getFechaSalida());
 
+        // Ocultar vistas específicas de camping por defecto
+        holder.ivCamping.setVisibility(View.GONE);
+        holder.tvCostoPorPersona.setVisibility(View.GONE);
+
         // Colores según tipo
         switch (reserva.getTipo()) {
             case "hotel":
@@ -51,15 +56,20 @@ public class ReservaAdapter extends RecyclerView.Adapter<ReservaAdapter.ReservaV
                 break;
             case "camping":
                 holder.itemView.setBackgroundColor(Color.parseColor("#F3E5F5")); // Morado claro
+                // Mostrar información específica de camping
+                holder.ivCamping.setVisibility(View.VISIBLE);
+                holder.tvCostoPorPersona.setVisibility(View.VISIBLE);
+                ReservaCamping reservaCamping = (ReservaCamping) reserva;
+                holder.tvCostoPorPersona.setText("Costo por persona: $" + reservaCamping.getCostoPorPersona());
                 break;
             default:
                 holder.itemView.setBackgroundColor(Color.WHITE);
         }
 
-        // Click para detalle (por ahora solo muestra un intent)
+        // Click para detalle
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ReservaDetalleActivity.class);
-            intent.putExtra("reserva", reserva); // Enviar la reserva como Serializable
+            intent.putExtra("reserva", reserva);
             context.startActivity(intent);
         });
     }
@@ -70,13 +80,16 @@ public class ReservaAdapter extends RecyclerView.Adapter<ReservaAdapter.ReservaV
     }
 
     public static class ReservaViewHolder extends RecyclerView.ViewHolder {
-        TextView tvTipo, tvCliente, tvFechas;
+        TextView tvTipo, tvCliente, tvFechas, tvCostoPorPersona;
+        ImageView ivCamping;
 
         public ReservaViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTipo = itemView.findViewById(R.id.tvTipo);
             tvCliente = itemView.findViewById(R.id.tvCliente);
             tvFechas = itemView.findViewById(R.id.tvFechas);
+            ivCamping = itemView.findViewById(R.id.ivCamping);
+            tvCostoPorPersona = itemView.findViewById(R.id.tvCostoPorPersona);
         }
     }
 }

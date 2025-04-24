@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         lista.add(new ReservaCamping(
                 "R003", "Sofía Ramírez", "2024-08-12", "2024-08-15", 750.0,
                 45, false, 2,
-                "Familiar", Arrays.asList("Piscina", "Senderismo", "Fogata nocturna")));
+                25,Arrays.asList("Piscina", "Senderismo", "Fogata nocturna"),R.drawable.camping));
 
         lista.add(new ReservaHotel(
                 "R004", "Pedro Sánchez", "2024-09-01", "2024-09-04", 480.0,
@@ -64,6 +64,13 @@ public class MainActivity extends AppCompatActivity {
         lista.add(new ReservaCholet(
                 "R005", "Lucía Fernández", "2024-10-20", "2024-10-23", 320.0,
                 65, false, 3));
+        lista.add(new ReservaCamping(
+                "R006", "Pablo Rocabado", "2024-12-16", "2025-01-10", 7150.0,
+                45, false, 2,
+                1000,Arrays.asList("Piscina", "Senderismo", "Fogata nocturna"),R.drawable.camping));
+        lista.add(new ReservaHotel(
+                "R007", "Pancrasio Perez", "2024-02-15", "2024-07-20", 550.0,
+                "Suite Presidencial", true, 2));
 
         return lista;
     }

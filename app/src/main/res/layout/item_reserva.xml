@@ -26,4 +26,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Fechas" />
+
+    <ImageView
+        android:id="@+id/ivCamping"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:visibility="gone"
+        android:src="@drawable/camping"
+        android:contentDescription="Imagen de camping" />
+
+    <TextView
+        android:id="@+id/tvCostoPorPersona"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="Costo por persona: " />
 </LinearLayout>
